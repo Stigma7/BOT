@@ -53,10 +53,6 @@ public class TelegramBot extends TelegramLongPollingBot {
                     break;
 
                 case "/info":
-                    sendMessage(chatId, "É tropical samba do brasil /start\n" +
-                            "Sensacional samba do brasil /info\n" +
-                            "É mundial samba do brasil /travel\n" +
-                            "Fenomenal samba do brasil /help");
                     infoCommand(chatId, update.getMessage().getChat().getFirstName(), update.getMessage().getChat().getBio());
                     break;
                 case "/help":
