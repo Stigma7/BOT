@@ -53,7 +53,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     break;
 
                 case "/info":
-                    infoCommand(chatId, update.getMessage().getChat().getFirstName(), update.getMessage().getChat().getBio());
+                    sendMessage(chatId, "Нажаль, ви олень який ніц не розуміє");
                     break;
                 case "/help":
 
