@@ -12,6 +12,15 @@ public class Place {
     private Long id;
     String monument, town, oblast, address, autor;
 
+
+
+    public Place(String placeName, String town, String oblast, String address, String name) {
+    }
+
+    public Place() {
+
+    }
+
     public String getMonument() {
         return monument;
     }
@@ -44,7 +53,7 @@ public class Place {
         this.address = address;
     }
 
-    public String getAutor() {
+    public String getAutor(String name) {
         return autor;
     }
 
