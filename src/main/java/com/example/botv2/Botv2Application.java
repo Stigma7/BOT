@@ -1,6 +1,7 @@
 package com.example.botv2;
 
 
+import org.springframework.boot.SpringApplication;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
@@ -14,6 +15,7 @@ import java.util.Properties;
 public class Botv2Application {
 
     public static void main(String[] args) throws TelegramApiException, IOException {
+        SpringApplication.run(Botv2Application.class, args);
         var tg = new TelegramBotsApi(DefaultBotSession.class);
         var config = new Properties();
         try (var app = Botv2Application.class.getClassLoader().getResourceAsStream("application.properties")) {
