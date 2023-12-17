@@ -17,10 +17,10 @@ public class RegAction implements Action {
     @Autowired
     private PlaceRepo placeRepo;
     private enum RegistrationStage {
-        EMAIL, PHONE_NUMBER, ADDRESS, OBLAST,COMPLETED
+        LOCATION, TOWN, ADDRESS, OBLAST,COMPLETED
     }
     private final List<String> oblastList = List.of("Вінницька", "Волинська", "Дніпропетровська", "Донецька", "Житомирська", "Закарпатська", "Запорізька", "Івано-Франківська", "Київська", "Кіровоградська", "Луганська", "Львівська", "Миколаївська", "Одеська", "Полтавська", "Рівненська", "Сумська", "Тернопільська", "Харківська", "Херсонська", "Хмельницька", "Черкаська", "Чернівецька", "Чернігівська");
-    private RegistrationStage currentStage = RegistrationStage.EMAIL;
+    private RegistrationStage currentStage = RegistrationStage.LOCATION;
 
     @Override
     public BotApiMethod handle(Update update) {
@@ -30,11 +30,11 @@ public class RegAction implements Action {
 
 
         switch (currentStage) {
-            case EMAIL:
+            case LOCATION:
                 text = "Розпочнемо додавання нової туристичної локації. Для успішного виконання слідуйте підказкам до отримання фрази (Реєстрація завершена. Дякую!)." +
                         " Розпочнемо з назви місця. Введіть найбільш підходящю назву";
                 break;
-            case PHONE_NUMBER:
+            case TOWN:
                 text = "Тепер введіть місто в якому знаходиться локація:";
                 break;
             case ADDRESS:
@@ -83,11 +83,12 @@ public class RegAction implements Action {
         String text;
 
         switch (currentStage) {
-            case EMAIL:
-                currentStage = RegistrationStage.PHONE_NUMBER;
+            case LOCATION:
+
+                currentStage = RegistrationStage.TOWN;
                 text = "Ви обрали назву місця: " + userInput + "\n Натисніть на /new для продовження додавання";
                 break;
-            case PHONE_NUMBER:
+            case TOWN:
                 // Збереження номеру телефону (userInput) в базі даних або деінде
                 currentStage = RegistrationStage.ADDRESS;
                 text = "місто успішно додано: " + userInput + "\n Натисніть на /new для продовження додавання";
