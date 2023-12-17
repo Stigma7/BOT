@@ -1,32 +1,32 @@
 package com.example.botv2;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity(name = "ListPlace")
 public class Place {
-    String location,town,address,oblast,name;
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+    String monument, town, oblast, address, autor;
+
+
+
+    public Place(String monument, String town, String oblast, String address, String name) {
+    }
 
     public Place() {
+
     }
 
-    public Place(String location, String town, String address, String oblast, String name, Long id) {
-        this.location = location;
-        this.town = town;
-        this.address = address;
-        this.oblast = oblast;
-        this.name = name;
-        this.id = id;
+    public String getMonument() {
+        return monument;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
+    public void setMonument(String monument) {
+        this.monument = monument;
     }
 
     public String getTown() {
@@ -37,14 +37,6 @@ public class Place {
         this.town = town;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getOblast() {
         return oblast;
     }
@@ -53,12 +45,20 @@ public class Place {
         this.oblast = oblast;
     }
 
-    public String getName() {
-        return name;
+    public String getAddress() {
+        return address;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAutor(String name) {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
     public void setId(Long id) {

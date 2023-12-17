@@ -1,5 +1,6 @@
 package com.example.botv2;
 
+import com.example.botv2.repository.PlaceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
