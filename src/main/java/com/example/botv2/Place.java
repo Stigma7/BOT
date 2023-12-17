@@ -3,7 +3,7 @@ package com.example.botv2;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-@Entity
+@Entity(name = "placeList")
 public class Place {
     String location,town,address,oblast,name;
     @Id
