@@ -1,6 +1,7 @@
 package com.example.botv2;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -10,9 +11,9 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class RegAction implements Action {
-
+    @Autowired
     private PlaceRepo placeRepo;
     private enum RegistrationStage {
         EMAIL, PHONE_NUMBER, ADDRESS, OBLAST,COMPLETED
